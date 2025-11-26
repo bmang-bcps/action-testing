@@ -6,14 +6,7 @@ jobs:
   hello_world_job:
     runs-on: ubuntu-latest
     steps:
-      - name: Set the value in bash
+      - name: Do something
         id: step_one
         run: |
-          echo "JSON_RESPONSE<<EOF" >> "$GITHUB_ENV"
-          curl -s https://ches.api.gov.bc.ca/api/v1/ >> "$GITHUB_ENV"
-          echo "EOF" >> "$GITHUB_ENV"
-      
-      - name: Use the value
-        id: step_two
-        run: |
-          printf '%s\n' "$JSON_RESPONSE"
+          curl https://ches.api.gov.bc.ca/api/v1/
