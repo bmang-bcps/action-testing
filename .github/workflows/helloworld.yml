@@ -9,11 +9,9 @@ jobs:
       - name: Set the value in bash
         id: step_one
         run: |
-          {
-            echo 'JSON_RESPONSE<<EOF'
-            curl https://ches.api.gov.bc.ca/api/v1/
-            echo EOF
-          } >> "$GITHUB_ENV"
+          echo "JSON_RESPONSE<<EOF" >> $GITHUB_ENV
+          curl https://ches.api.gov.bc.ca/api/v1/ >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
       - name: Use the value
         id: step_two
         run: |
